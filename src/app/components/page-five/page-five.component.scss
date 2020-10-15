@@ -1,0 +1,106 @@
+@import '../../../variables';
+
+.propertyBoard {
+  p {
+    font-size: 13px;
+    font-family: 'Myriad Pro Regular';
+    color: #8d8d8d;
+  }
+
+  .property.discounts {
+    // margin-top: 50px !important;
+
+    .col-md-6, .col-md-4 {
+      padding: 5px !important;
+
+    }
+  }
+
+  .property > p {
+    @media screen and (max-width: $tablet) {
+      margin-bottom: 0px !important;
+    }
+  }
+
+  .property {
+    // padding-top: 40px;
+    @media screen and (max-width: $tablet) {
+      margin-left: 0px !important;
+    }
+
+    .col-md-6, .col-md-4 {
+      padding: 5px;
+      @media screen and (max-width: $tablet) {
+        padding: 10px 20px !important;
+      }
+      .buildingImag {
+        width: 60%;
+        height: auto;
+        margin-left: 20%;
+      }
+
+      p {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      div:hover {
+        cursor: pointer;
+        transition: ease .3s;
+      }
+
+      div {
+        padding: 3px 5px 2px 5px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .property:last-of-type {
+    margin-top: 20px;
+  }
+}
+
+.activeOption {
+  width: 80%;
+  background-color: #43A3D6 !important;
+  color: white;
+  border: solid 1px;
+  border-radius: 1px !important;
+  border-color: #929292;
+}
+
+.inactiveOption {
+  width: 80%;
+  background-color: #FFFFFF !important;
+  border: solid 1px;
+  border-radius: 1px !important;
+  border-color: #929292;
+}
+
+p.greytext{
+  color: #808080 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0px !important;
+  padding: 0px;
+}
+
+p.whitetext{
+  color: #ffffff !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0px !important;
+  padding: 0px;
+}
+
+@font-face {
+  font-family: 'Myriad Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Myriad Pro Regular'), url('../../../assets/font/MYRIADPRO-REGULAR.woff') format('woff');
+  }

@@ -1,0 +1,90 @@
+@import '../../../variables';
+
+button.close {
+  margin-top: 10px;
+  font-size: 20pt !important;
+}
+
+button.close:focus {
+  outline: none;
+}
+
+.add-car-containter {
+  padding-top: calc(1.5rem + 32px);
+  margin-top: 0;
+  padding-bottom: 1.5rem;
+  height: 100%;
+
+  .addCar {
+    height: 100%;
+    min-height: 130px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.property.next-btn-div {
+  @media screen and (max-width: $tablet - 1px) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+.scrollable-menu {
+    height: 200px;
+    overflow: auto;
+}
+
+@font-face {
+  font-family: 'Myriad Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Myriad Pro Regular'), url('../../../assets/font/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+.dropdown-toggle::after{
+  float: right !important;
+  margin-right: 10px !important;
+    margin-top: 10px !important;
+}
+
+div.year-div{
+  border: 1px solid !important;
+    border-color: gray !important;
+    border-radius: 3px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0px;
+    margin: auto;
+}
+
+.addCar1 {
+  position: absolute; left: 30px;top: 120px;border: 1px solid;border-color: gray;border-radius: 10px;background-color: white;
+}
+
+.addCar2 {
+  position: absolute; left: 300px;top: 120px;border: 1px solid;border-color: gray;border-radius: 10px;background-color: white;
+}
+
+.mobile-addCar1 {
+  position: absolute; left: 0px;top: 150px;border: 1px solid;border-color: gray;border-radius: 10px;background-color: white;
+}
+
+.mobile-addCar2 {
+  position: absolute; left: 0px;top: 400px;border: 1px solid;border-color: gray;border-radius: 10px;background-color: white;
+}
+
+.mobile-addCar3 {
+  position: absolute; left: 0px;top: 650px;border: 1px solid;border-color: gray;border-radius: 10px;background-color: white;
+}
+

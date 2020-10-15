@@ -1,0 +1,53 @@
+<div class="quoteDiv" style="background-color: blue;">
+  <div class="row navbar-div" style="background-color: blue; height: 50px;">
+    <!-- <div class="col-md-8 col-8" [ngClass]="commonService.checkMobile()?'pb-3':''">
+      <h6 class="text-uppercase">your agent</h6>
+      <div class="media">
+        <a data-toggle="modal" [attr.data-target]="commonService.checkMobile()?'#modalPush':''">
+          <img class="d-flex mr-3" [src]="agentInfo.logo" alt="">
+        </a>
+        <div class="media-body">
+          <h6 class="mt-0 mb-0 text-capitalize"><mdb-icon fas icon="user-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{urlHash}}</h6>
+          <h6 class="mt-0 mb-0 "><mdb-icon fas icon="envelope"></mdb-icon>&nbsp;&nbsp;&nbsp;{{agentInfo.email}}</h6>
+          <h6 class="mt-0 mb-0"><mdb-icon fas icon="phone-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{agentInfo.phone}}</h6>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="col-md-4 col-4" *ngIf="quote_id">
+      <h6 class="text-right pt-2 pr-1"
+         [ngClass]="commonService.checkMobile()?'col-12 mt-3':''">Quote Id # {{quote_id}}</h6>
+    </div> -->
+  </div>
+</div>
+<!--Modal: modalPush-->
+<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Contact Information</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 col-4">
+            <img class="d-flex mr-3 mx-auto" width="80" [src]="agentInfo.logo" alt="">
+          </div>
+          <div class="col-md-8 col-8">
+            <h6 class="mt-0 mb-0 text-left">{{agentInfo.email}}</h6>
+            <h6 class="mt-0 mb-0 text-left">{{agentInfo.phone}}</h6>
+          </div>
+        </div>
+      </div>
+      <!--Footer-->
+      <!-- <div class="modal-footer flex-center">
+        <a href="javascript:void(0)" data-dismiss="modal" class="btn btn-info shadow-none">OK</a>
+      </div> -->
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: modalPush-->

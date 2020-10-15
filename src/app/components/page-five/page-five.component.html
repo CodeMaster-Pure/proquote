@@ -1,0 +1,136 @@
+<div class="md-form form-group">
+    <!--<div class="md-form form-group" *ngIf="step==3 && !isCarDiv">-->
+    <div class="row propertyBoard animated fadeIn">
+        <!-- <div class="offset-md-3 col-md-9" style="margin-bottom: 20px;">
+			<h5 class="font-weight-bolder h5-responsive" [ngStyle]="this.commonService.checkMobile()?{'font-size':'17px'}:{}">
+				<img src="../../../assets/images/maps-and-flags.png"
+					[ngStyle]="this.commonService.checkMobile()?{'height':'20px'}:{'height':'30px'}"
+					class="d-inline-block align-top" alt="">
+				<strong>&nbsp;{{
+				addressData['address'] + ', ' +
+				addressData['locality'] + ', ' +
+				addressData['administrative_area_level_1'] + ' ' +
+				addressData['postal_code']
+				}}</strong>
+			</h5>
+		</div> -->
+        <div class="col-md-6 row property discounts" style="margin: 0px !important;">
+            <p class="col-md-12" style="margin-bottom: 0px; color: #808080; font-size: 18px;">
+                &nbsp;Discounts
+            </p>
+            
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.alarm?'activeOption':'inactiveOption'" (click)="clickAlarm()">
+                    <p [ngClass]="discountsData.alarm?'whitetext':'greytext'" class="text text-center">alarm</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.bundle?'activeOption':'inactiveOption'" (click)="clickBundle()">
+                    <p [ngClass]="discountsData.bundle?'whitetext':'greytext'" class="text text-center">bundle</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.life_ins?'activeOption':'inactiveOption'" (click)="clickLife_ins()">
+                    <p [ngClass]="discountsData.life_ins?'whitetext':'greytext'" class="text text-center">life ins</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-6">
+                <div [ngClass]="discountsData.smoke_detector?'activeOption':'inactiveOption'" (click)="clickSmoke_detector()">
+                    <p [ngClass]="discountsData.smoke_detector?'whitetext':'greytext'" class="text text-center">smoke detector</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-6">
+                <div [ngClass]="discountsData.good_credit?'activeOption':'inactiveOption'" (click)="clickGood_credit()">
+                    <p [ngClass]="discountsData.good_credit?'whitetext':'greytext'" class="text text-center">good credit</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 row col-sm-12" style="margin: 0px !important;">
+            <p class="col-md-12" style="margin-bottom: 0px; color: #808080; font-size: 18px;">
+                &nbsp;Start Date
+            </p>
+            <div class="form-row">
+                <div class="md-form mt-0 col-lg-12" onclick="this.children.focus()">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="mm-dd-yyyy"
+                           name="dp" [(ngModel)]="discountsData.startdate" ngbDatepicker #d="ngbDatepicker" style="border-color: gray; height: 39px !important; color: #808080; font-size: 15px;">
+                        <div class="input-group-append" style="padding-bottom: 8px;">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button" style="margin: 0px; padding: 10px; border-color: #9f9f9f !important; height: 39px !important; color: #808080; font-size: 15px;"><i style="color: gray;" class="far fa-calendar-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 row property" style="margin: 0px !important;">
+            <p class="font-weight-bolder col-md-4 col-4 greytext">
+                <strong class="greytext">&nbsp;dog?</strong>
+            </p>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.dog===true?'activeOption':'inactiveOption'" (click)="discountsData.dog=true">
+                    <p [ngClass]="discountsData.dog?'whitetext':'greytext'" class="text text-center font-weight-bold">y</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.dog===false?'activeOption':'inactiveOption'" (click)="discountsData.dog=false">
+                    <p [ngClass]="discountsData.dog?'greytext':'whitetext'" class="text text-center font-weight-bold">n</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 row property" style="margin: 0px !important;">
+            <p class="font-weight-bolder col-md-4 col-4 greytext">
+                <strong>&nbsp;roof shape</strong>
+            </p>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.roof_shape===true?'activeOption':'inactiveOption'" (click)="discountsData.roof_shape=true">
+                    <p [ngClass]="discountsData.roof_shape?'whitetext':'greytext'" class="text text-center font-weight-bold">flat</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-4 flat">
+                <div [ngClass]="discountsData.roof_shape===false?'activeOption':'inactiveOption'" (click)="discountsData.roof_shape=false">
+                    <p [ngClass]="discountsData.roof_shape?'greytext':'whitetext'" class="text text-center font-weight-bold">peaked</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 row property" style="margin: 0px !important;">
+            <p class="font-weight-bolder col-md-4 col-4 greytext">
+                <strong>basement finished?</strong>
+            </p>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.claim_free?'activeOption':'inactiveOption'" (click)="discountsData.claim_free=true">
+                    <p [ngClass]="discountsData.claim_free?'whitetext':'greytext'" class="text text-center font-weight-bold">y</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.claim_free===false?'activeOption':'inactiveOption'" (click)="discountsData.claim_free=false">
+                    <p [ngClass]="discountsData.claim_free?'greytext':'whitetext'" class="text text-center font-weight-bold">n</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 row property" style="margin: 0px !important;">
+            <p class="font-weight-bolder col-md-4 col-4 greytext">
+                <strong>&nbsp;pool?</strong>
+            </p>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.pool===true?'activeOption':'inactiveOption'" (click)="discountsData.pool=true">
+                    <p [ngClass]="discountsData.pool?'whitetext':'greytext'" class="text text-center font-weight-bold">y</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-4">
+                <div [ngClass]="discountsData.pool===false?'activeOption':'inactiveOption'" (click)="discountsData.pool=false">
+                    <p [ngClass]="discountsData.pool?'greytext':'whitetext'" class="text text-center font-weight-bold">n</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="form-group col-md-8" style="margin: 0 auto; display: block;">
+                <app-next-button color="primary" type="button" text="Continue" (click)="next()"></app-next-button>
+            </div>
+        </div>
+    </div>
+</div>

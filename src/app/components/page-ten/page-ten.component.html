@@ -1,0 +1,89 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px;">
+            <h5 style="font-family: Myriad Pro Regular;">{{total_data.address_data.formatted_address}}</h5>
+            <hr style="width: 80%;">
+        </div>
+        <div class="col-12">
+            <p class="small" style="font-family: Myriad Pro Regular;">
+                Your Quote Request Has Been Submitted!
+            </p>
+        </div>
+
+        <br>
+    </div>
+    <br><br><br><br>
+    <div class="row">
+        <div class="col-md-4 col-12">
+            <h5 style="font-family: Myriad Pro Regular;">Price Range:</h5>
+            <h5 style="font-family: Myriad Pro Regular;">{{apiData['lowest_price']|currency:'USD':'symbol':'1.0-0'}} - {{apiData['highest_price']|currency:'USD':'symbol':'1.0-0'}}</h5>
+            <p style="color: #00b0ff; font-family: Myriad Pro Regular;">based on 14 prices</p> <br>
+
+            <h5 style="font-family: Myriad Pro Regular;">Coverage A:</h5>
+            <h5 style="font-family: Myriad Pro Regular;">{{buildingCoverage}}</h5>
+
+            <br>
+            <h5 style="font-family: Myriad Pro Regular;">Flood Zone:</h5>
+            <h5 style="font-family: Myriad Pro Regular;">{{floodZone}}
+                ({{(floodZone=='A' || floodZone=='AE')?'HIGH':"LOW"}} RISK)</h5>
+
+            <p style="color: #00b0ff; font-family: Myriad Pro Regular;">based on 14 prices</p> <br>
+
+            <h5 style="font-family: Myriad Pro Regular;">Contact Us:</h5>
+            <h5 style="font-family: Myriad Pro Regular;">{{agentInfo['name']}}</h5>
+            <h5 style="font-family: Myriad Pro Regular;">{{agentInfo['phone']}}</h5>
+        </div>
+        <div class="col-md-8 col-12">
+            <div class="page-ten-block">
+                <h4 class="font-weight-bold text-black-50" style="font-family: Myriad Pro Regular;">Steps to Getting Coverage</h4>
+                <div class="col">
+                    <div class="row mt-1">
+                        <div class="col-md-12">
+                            <!-- Stepers Wrapper -->
+                            <ul class="stepper stepper-vertical">
+                                <!-- First Step -->
+                                <li class="completed">
+                                    <a href="javascript:void(0)">
+                                <span class="stepper-indicator">
+                                    <img src="../../../assets/images/checked.png" />
+                                </span>
+                                        <span class="label pl-3" style="font-family: Myriad Pro Regular;">Apply for quote</span>
+                                    </a>
+                                </li>
+                                <!-- Second Step -->
+                                <li class="active">
+                                    <a href="javascript:void(0)">
+                                        <span class="stepper-indicator"></span>
+                                        <span class="label pl-3" style="font-family: Myriad Pro Regular;">Receive Proposal & Review</span>
+                                    </a>
+                                </li>
+                                <!-- Third Step -->
+                                <li class="active">
+                                    <a href="javascript:void(0)">
+                                        <span class="stepper-indicator"></span>
+                                        <span class="label pl-3" style="font-family: Myriad Pro Regular;">Agree and Provide</span>
+                                    </a>
+                                    <!-- Section Description -->
+                                    <div class="step-content">
+                                        <p style="font-family: Myriad Pro Regular;">Mortgage Information</p>
+                                        <p style="font-family: Myriad Pro Regular;">Start Date</p>
+                                        <p style="font-family: Myriad Pro Regular;">Payment Detail</p>
+                                    </div>
+                                </li>
+                                <!-- Second Step -->
+                                <li class="active">
+                                    <a href="javascript:void(0)">
+                                        <span class="stepper-indicator"></span>
+                                        <span class="label pl-3 text-left" style="font-family: Myriad Pro Regular;">Receive New Policy Documentation</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

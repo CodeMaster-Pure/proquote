@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+
+@media screen and (max-width: $tablet - 1px) {
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select:focus,
+  textarea {
+    font-size: 16px;
+  }
+  ngb-datepicker {
+    position: absolute;
+    background-color: white;
+
+    .ngb-dp-header {
+        background-color: #ffffff;
+    }
+
+    select {
+        background-color: rgba(52,104,191,1);
+        color: white;
+    }
+  }
+}
+
+.md-form .ngb-dp-header {
+  background-color: #ffffff !important;
+}
+
+.md-form .ngb-dp-week {
+  background-color: #ffffff !important;
+}
+
+.md-form .ngb-dp-weekdays {
+  background-color: #ffffff !important;
+}
+
+.md-form .ngb-dp-week{
+  background-color: #ffffff !important;
+}
+
+.md-form .btn-light{
+  background-color: #ffffff !important;
+}

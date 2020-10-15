@@ -1,0 +1,109 @@
+#large-text-1 {
+
+  font-family: Rubik !important;
+  font-size: 58px;
+  font-weight: 700;
+  color: white;
+  line-height: 150%;
+
+}
+
+#small-text {
+
+  font-family: Rubik !important;
+  font-size: 23px;
+  font-weight: 300;
+  color: white;
+  line-height: 150%;
+  max-width: 500px;
+
+}
+
+
+#demo-button a {
+  color: #000 !important;
+  font-weight: bolder !important;
+}
+
+#large-text-1 {
+  width: 100%;
+}
+
+.price-div {
+  border: 2px solid lightgray;
+  border-radius: 15px;
+  min-height: 400px;
+  width: 400px;
+  display: inline-block;
+  margin: 25px;
+  position: relative;
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  background-color: white;
+
+}
+
+.price-div-header {
+
+  border-bottom: 2px solid #f3f3f3;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  min-height: 100px;
+  width: 100%;
+  display: inline-block;
+  text-align-last: center;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 2em;
+  padding-top: 20px;
+  color: darkslategray;
+  background-color: #f3f3f3;
+
+}
+
+.price-div-text {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 3em;
+  display: inline-block;
+  color: darkslategray;
+  background-color: white;
+
+
+}
+
+.price-div-text-1 {
+  display: inline-block;
+  color: darkslategray;
+
+
+}
+
+.per-mo {
+  display: inline-block;
+}
+
+.block-button {
+  position: absolute;
+  bottom: 35px;
+  max-width: 90%;
+  margin-left: 5%;
+  height: 50px;
+  font-size: 1.3em;
+
+}
+
+#jumbo-row {
+
+  background-image: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);
+  background-position: 15% 70%;
+  margin-top: -20px;
+  padding: 5%;
+  padding-top: 15%;
+
+
+  text-align: center;
+
+}
+@media screen and (max-width: 540px){
+  .price-div{
+    width: calc(100% - 50px) !important;
+  }
+}

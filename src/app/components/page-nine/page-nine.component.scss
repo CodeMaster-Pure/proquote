@@ -1,0 +1,60 @@
+@import '../../../variables';
+
+.info-header {
+  padding: 10px 0px;
+  font-weight: bold;
+  margin-top: 20px;
+  @media screen and (min-width: $tablet) {
+    margin-left: -20px;
+  }
+}
+.invalid-input{
+  //background-color: yellow !important;
+}
+
+.form-row-custom{
+    justify-content: center !important;
+}
+
+@font-face {
+  font-family: 'Myriad Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Myriad Pro Regular'), url('../../../assets/font/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+.custom-form{
+  border: none !important;
+  width: auto !important;
+}
+
+.custom-select{
+  border: none !important;
+  width: auto !important;
+}
+
+select:focus, .form-control:focus, textarea:focus, button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+  textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-user-select: none !important;  /* Chrome all / Safari all */
+    -moz-user-select: none !important;     /* Firefox all */
+    -ms-user-select: none !important;      /* IE 10+ */
+    user-select: none !important;          /* Likely future */      
+  }
+
+  ngb-datepicker{
+    left: -60px !important;
+  }
+
+  .ngbDatepicker{
+    left: -60px !important;
+  }
+
+  ngbDatepicker{
+    left: -60px !important;
+  }

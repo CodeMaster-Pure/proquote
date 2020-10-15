@@ -1,0 +1,147 @@
+<div class="md-form form-group">
+    <div class="col">
+        <!--    <div class="offset-md-2 col-md-8" style="margin-bottom: 40px;">-->
+        <!--      <h5 class="font-weight-bolder h5-responsive" [ngStyle]="this.commonService.checkMobile()?{'font-size':'17px'}:{}">-->
+        <!--        <img src="../../../assets/images/maps-and-flags.png"-->
+        <!--             [ngStyle]="this.commonService.checkMobile()?{'height':'20px'}:{'height':'30px'}"-->
+        <!--             class="d-inline-block align-top" alt="">-->
+        <!--        <strong>&nbsp;{{-->
+        <!--          addressData['address'] + ', ' +-->
+        <!--          addressData['locality'] + ', ' +-->
+        <!--          addressData['administrative_area_level_1'] + ' ' +-->
+        <!--          addressData['postal_code']-->
+        <!--          }}</strong>-->
+        <!--      </h5>-->
+        <!--    </div>-->
+        <div class="row propertyBoard animated fadeIn">
+            <div class="col-md-4 m-0" *ngFor="let item of carData; index as i">
+                <div class="d-flex align-items-center justify-content-center" style="margin-top: 20px;">
+                    <img src="../../../assets/images/caricon.png" class="mx-auto" />
+                    <button type="button" class="close" aria-label="Close" *ngIf="carData.length>1" (click)="deleteCar(i)">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <div class="md-outline md-form">
+                        <select class="browser-default custom-select CarYearInput" [(ngModel)]="carData[i]['year']">
+                            <option>Select</option>
+                            <option *ngFor="let item of CarYearData; index as i" [value]="item.year">{{item.year}}</option>
+                        </select>
+                    </div>
+                    <div class="md-outline md-form">
+<!--                        <select class="browser-default custom-select CarTypeInput" [(ngModel)]="carData[i]['type']">-->
+<!--                            <option>Select</option>-->
+<!--                            <option selected disabled>Choose one</option>-->
+<!--                            <option *ngFor="let item of CarTypeData; index as i" [value]="item">{{item}}</option>-->
+<!--                        </select>-->
+
+                        <div class="btn-group col-md-12" style="padding: 0px;">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="background-color:white !important;
+                            color: black;  padding: 5px 0px 5px 0px; font-size: 15px;">
+                                <span *ngIf="carData[i]['type'] !='' || carData[i]['type']!=null " style="float: left;
+                                margin-left: 10px;
+                                margin-top: 2px;">{{carData[i]['type']}}</span>
+                                <span *ngIf="carData[i]['type'] =='' || carData[i]['type']==null " style="float: left;
+                                margin-left: 10px;
+                                margin-top: 2px;">Select</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                <li style="padding: 0px; padding-left: 10px;" class="dropdown-header"><a style="color: gray;">Most Popular</a></li>
+                                <hr style="    margin: 5px 0px 5px 0px;">
+                                <li style="padding-left: 10px;  cursor: pointer;" *ngFor="let item of CarTypeMostData;" [value]="item" (click)="setCarType(i,item)">{{item}}</li>
+                                <hr style="    margin: 5px 0px 5px 0px;">
+                                <li style="padding: 0px; padding-left: 10px; " class="dropdown-header"><a style="color: gray;" href="#">All</a></li>
+                                <li style="padding-left: 10px; " *ngFor="let item of CarTypeData;" [value]="item"><a style="color: black;" (click)="setCarType(i,item)">{{item}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md-outline md-form">
+                        <input mdbInput type="text" class="form-control" placeholder="Model" [(ngModel)]="carData[i]['model']" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" *ngIf="carData.length<4">
+                <div class="md-outline md-form add-car-containter">
+                    <div class="form-row addCar align-items-center justify-content-center" (click)="showDiv()">
+                        <div class="col justify-content-center align-items-center">
+                            <div class="text-center">
+                                <img src="../../../assets/images/page6/white-plus.png" class="mx-auto" style="height: 37px; width: 35px;"/>
+                            </div>
+                            <div class="text-center" style="margin-top: 10px;">Add Car</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div  *ngIf="isShowYearDiv && !isMobile" class="col-md-5" [ngClass]="carData.length==2?'addCar2':'addCar1'">
+                <div class="row" style="padding: 10px;">
+                    <div class="col-4" style="padding: 0px; cursor: pointer;" *ngFor="let number of [-1, 0 , 1]" (click)="addCar(currentyear - number)">
+                        <div class="col-md-10 year-div">
+                            {{currentyear - number}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-4 addCar" style="padding: 0px; cursor: pointer;" *ngFor="let number of [2, 3, 4]" (click)="addCar(currentyear - number)">
+                        <div class="col-md-10 year-div">
+                            {{currentyear - number}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-4 addCar" style="padding: 0px; cursor: pointer;" *ngFor="let number of [5, 6, 7]" (click)="addCar(currentyear - number)">
+                        <div class="col-md-10 year-div">
+                            {{currentyear - number}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-4 addCar" style="padding: 0px; cursor: pointer;" *ngFor="let number of [8, 9, 10]" (click)="addCar(currentyear - number)">
+                        <div class="col-md-10 year-div">
+                            {{currentyear - number}}
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div  *ngIf="isShowYearDiv && isMobile" class="col-md-5" [ngClass]="{'mobile-addCar1': carData.length === 1, 'mobile-addCar2':carData.length === 2, 'mobile-addCar3':carData.length === 3 }">
+                <div class="row" style="padding: 10px;">
+                    <div class="col-4" style="padding: 0px; cursor: pointer;" *ngFor="let number of [-1, 0 , 1]" (click)="addCar(currentyear - number)">
+                        <div class="col-md-10 year-div">
+                            {{currentyear - number}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-4 addCar" style="padding: 0px; cursor: pointer;" *ngFor="let number of [2, 3, 4]" (click)="addCar(currentyear - number)">
+                        <div class="col-md-10 year-div">
+                            {{currentyear - number}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-4 addCar" style="padding: 0px; cursor: pointer;" *ngFor="let number of [5, 6, 7]" (click)="addCar(currentyear - number)">
+                        <div class="col-md-10 year-div">
+                            {{currentyear - number}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-4 addCar" style="padding: 0px; cursor: pointer;" *ngFor="let number of [8, 9, 10]" (click)="addCar(currentyear - number)">
+                        <div class="col-md-10 year-div">
+                            {{currentyear - number}}
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div class="col-md-12" style="height: 150px; z-index: -1;" >
+        </div>
+        <div class="col-md-12 row property next-btn-div">
+            <div class="form-group col-md-8" style="margin: 0 auto; display: block;">
+                <app-next-button type="button" color="primary" text="Continue" (click)="next()" style="margin-bottom: 20px;"></app-next-button>
+            </div>
+        </div>
+    </div>
+</div>

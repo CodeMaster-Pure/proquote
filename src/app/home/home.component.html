@@ -1,0 +1,1419 @@
+<ng4-loading-spinner [timeout]="4000000"></ng4-loading-spinner>
+<app-sub-header [quote_id]="quote_id"></app-sub-header>
+
+
+<div class="container-fluid" id="scrollTop" [ngStyle]="(isMobile)?{'padding-top':'100px','background-color':'#ffffff', 'minHeight':mainHeight+'px'}:{'padding-top':'100px', 'background-color': '#f4f4f4', 'minHeight':mainHeight+'px'}">
+    <!--Page1 Begin  ----------------------------------------------------------->
+    <div class="row preDiv" *ngIf="step==1">
+        <!--SideBar begin -->
+        <div class="col-md-4 col-lg-5 col-12" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+            <div class="col-md-12 col-12 col-lg-8 offset-lg-3 offset-md-1" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+                <div *ngIf="!isMobile" class="agentImageDiv" style="background-color: white; height: 100px !important; padding: 15px 0px 0px 30px;">
+                    <p class="text font-weight-bolder" >
+                        <b>{{agentInfo['name']}}</b>
+                    </p>
+                    <p class="text font-weight-bolder" >
+                        <b>{{agentInfo['email']}}</b>
+                    </p>
+                </div>
+                <div *ngIf="isMobile" style="text-align: center;"><h3>Insurance Quote</h3></div>
+
+                <!--Vertical stepper-->
+                <div class="col-md-12 col-12 col-lg-12" style="margin-top: 22px; padding: 0px; background-color: white;">
+                    <!-- Stepers Wrapper -->
+                    <ul [ngClass]="isVerical ?'stepper stepper-vertical':'stepper stepper-horizontal'"  [ngStyle]="isMobile?{'padding':'0px'}:{'padding-left': '30px'}">
+                        <!-- First Step -->
+                        <li class="completed">
+                            <a href="javascript:void(0)" (click)="movePage(1)">
+                                <span class="circle">
+                                    <img src="../../../assets/images/sidebar/icon_start_active.png" class="mx-auto" width="100%" />
+                                </span>
+                                <p class="label" *ngIf="!isMobile" [ngClass]="step>=1?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Start</p>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -30px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{sidebarAddress}}</span>
+                        <!-- Second Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=2" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<2" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=2?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">About</span>
+                            </a>
+                        </li>
+                        <!-- Third Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=3" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<3" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-home" style="color: #818181; background-color: #e6e6e6;"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=3?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">House Info</span>
+                            </a>
+                        </li>
+                        <!-- Fourth Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=4" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<4" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=4?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Other Details</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=5">
+                                    <img src="../../../assets/images/sidebar/active_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="circle" *ngIf="step<5">
+                                    <img src="../../../assets/images/sidebar/inactive_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=5?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Done!</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.Stepers Wrapper -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-7 col-12 quoteTextDiv" [ngStyle]="isMobile?{'margin-bottom':'30px'}:{}">
+            <div *ngIf="!isMobile" class="col-md-12 col-lg-12 col-12" style="height: 100px;">
+                <div class="row" style="padding-top: 30px;">
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">home</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">auto</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">life</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">umbrella</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">jewelry</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;  ">
+                        <div>
+                            <p class="innerdivtext">other</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-lg-10 col-12" style="background-color: white;">
+                <div class="md-form form-group col-12" [ngStyle]="!isMobile?{'padding-top':'30px','margin-bottom':'0px'}:{}">
+                    <div class="row">
+                        <div class="col-md-12 col-12" style="margin-top: 10px; ">
+                            <input
+                                style="border: solid 1px; background-color: #f5f5f5; padding-left: 5px;"
+                                class="form-control inputAddressMD"
+                                autocorrect="off"
+                                (onAddressChange)="handleAddressChange($event)"
+                                id="inputAddressMD"
+                                autocapitalize="off"
+                                spellcheck="off"
+                                (load)="loadGooglePlace()"
+                                type="text"
+                                *ngIf="GooglePlace==true"
+                                [(ngModel)]="staticAddress"
+                                #placesRef
+                                placeholder="enter property address"
+                            />
+                            <input style="border: solid 1px; padding-left: 5px;" type="text" class="form-control inputAddressMD" placeholder="Ex: 419 Virginia Ave, Phoenixville, Pennsylvania 19460" *ngIf="GooglePlace==false" [(ngModel)]="staticAddress" />
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-12 pull-left switchArea" style="text-align: right;">
+                            <a class="text font-weight-bolder text-dark"
+                                (click)="toggleGooglePlace();">
+                                <strong>{{GooglePlace ? 'Enter manually.' : 'Enter automatically.'}}</strong>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <app-loader [type]="'loader10'" [scale]="0.4" class="app-loader"
+                                        *ngIf="zillowLoader && !zillowDataFetched"></app-loader>
+                        </div>
+                        <div *ngIf="GooglePlace" class="col-12" style="text-align: center; margin: 25px 0px 0px 0px;">
+                            <div *ngIf="!b_zillowData">
+                                <p style="font-family: 'Myriad Pro Regular';font-size: 17px;">this application takes about 3 minutes!</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="!GooglePlace || b_zillowData" class="row">
+                        <div class="col-md-4 col-lg-4 col-12">
+                            <agm-map [latitude]="lat" [longitude]="lng">
+                                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                            </agm-map>
+                        </div>
+                        <div  class="col-md-8 col-lg-8 col-12">
+                            <input type="number" class="form-control inputManualField" [(ngModel)]="zillowData['built_year']" placeholder="Year Built" />
+                            <input type="number" class="form-control inputManualField" [(ngModel)]="zillowData['square']" placeholder="Sqaure Feet" />
+                            <input type="text" class="form-control inputManualField" [(ngModel)]="zillowData['estimate']" placeholder="Estimate Value" />
+                            <input *ngIf="GooglePlace" type="text" class="form-control inputManualField" [(ngModel)]="floodData['application']['floodZone']" placeholder="Flood Zone" />
+                            <input *ngIf="!GooglePlace" type="text" class="form-control inputManualField" placeholder="Flood Zone" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="!GooglePlace || b_zillowData" class="form-row select_btn_block col-12" [ngStyle]="isMobile?{'padding':'0px'}:{'margin': '0px', 'padding-left':'50px'}">
+                    <!-- <div id="spacing-image" class="col-md-1"></div> -->
+                    <div class="col-md-3 col-3"  style="  margin: 10px;  float: left;border: solid 1px;border-radius: 5px;padding: 0px;border-color: #acacb0;background-color: #f5f5ff;">
+                        <div class="select_insurance" style="justify-content: center; text-align: center;">
+                            <p class="font-weight-bold text-center text-primary" style="justify-content: start !important;text-align: left !important; margin-left: 10px; padding-top: 10px; font-size: 11px; color: #acacb0 !important; margin-bottom: 10px;">Primary Residence</p>
+                            <img src="../../assets/images/homes/home1.png" style="margin-bottom: 10px;" />
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-3"  style="  margin: 10px;  float: left;border: solid 1px;border-radius: 5px;padding: 0px;border-color: #acacb0;background-color: #f5f5ff;">
+                        <div class="select_insurance" style="justify-content: center; text-align: center;">
+                            <p class="font-weight-bold text-center text-primary" style="justify-content: start !important;text-align: left !important; margin-left: 10px; padding-top: 10px; font-size: 11px; color: #acacb0 !important; margin-bottom: 10px;">Rental Property</p>
+                            <img src="../../assets/images/homes/home2.png" style="margin-bottom: 10px;" />
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-3"  style="  margin: 10px;  float: left;border: solid 1px;border-radius: 5px;padding: 0px;border-color: #acacb0;background-color: #f5f5ff;">
+                        <div class="select_insurance" style="justify-content: center; text-align: center;">
+                            <p class="font-weight-bold text-center text-primary" style="justify-content: start !important;text-align: left !important; margin-left: 10px; padding-top: 10px; font-size: 11px; color: #acacb0 !important; margin-bottom: 10px;">Second Home</p>
+                            <img src="../../assets/images/homes/home3.png" style="margin-bottom: 10px;"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div *ngIf="!GooglePlace || b_zillowData" class="row">
+                    <div class="col-md-12" style="margin-top: 25px; margin-bottom: 10px; ">
+                        <button class="btn btn-primary btn-block shadow-none col-md-8 col-lg-8 col-12" (click)="setAddrZillow()" [disabled]="!isDisplay()" style="margin: 0 auto; display: block;">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+	<!--Page1 End  ----------------------------------------------------------->
+
+    <!-- Page2 Begin -------------------------------------------------------->
+    <div class="row preDiv" *ngIf="step==2">
+		<!-- Side bar Begin---->
+        <div class="col-md-4 col-lg-5 col-12" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+            <div class="col-md-12 col-12 col-lg-8 offset-lg-3 offset-md-1" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+                <div *ngIf="!isMobile" class="agentImageDiv" style="height: 100px !important; padding: 15px 0px 0px 30px;">
+
+                </div>
+                <div *ngIf="isMobile" style="text-align: center;"><h3>Insurance Quote</h3></div>
+                <!--Vertical stepper-->
+                <div class="col-md-12 col-12 col-lg-12" style="margin-top: 22px; padding: 0px; background-color: white;">
+                    <!-- Stepers Wrapper -->
+                    <ul [ngClass]="isVerical ?'stepper stepper-vertical':'stepper stepper-horizontal'"  [ngStyle]="isMobile?{'padding':'0px'}:{'padding-left': '30px'}">
+                        <!-- First Step -->
+                        <li class="completed">
+                            <a href="javascript:void(0)" (click)="movePage(1)">
+                                <span class="circle">
+                                    <img src="../../../assets/images/sidebar/icon_start_active.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=1?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Start</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{sidebarAddress}}</span>
+                        <!-- Second Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(2)">
+                                <span class="circle" *ngIf="step>=2" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<2" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=2?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">About</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px;">{{sidebarfirstname + " " + sidebarlastname}}</span>
+                        <!-- Third Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=3" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<3" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-home" style="color: #818181; background-color: #e6e6e6;"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=3?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">House Info</span>
+                            </a>
+                        </li>
+                        <!-- Fourth Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=4" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<4" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=4?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Other Details</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=5">
+                                    <img src="../../../assets/images/sidebar/active_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="circle" *ngIf="step<5">
+                                    <img src="../../../assets/images/sidebar/inactive_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=5?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Done!</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.Stepers Wrapper -->
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-12 quoteTextDiv" [ngStyle]="isMobile?{'margin-bottom':'30px'}:{}">
+            <div *ngIf="!isMobile" class="col-md-12 col-lg-12 col-12" style="height: 100px;">
+                <div class="row" style="padding-top: 30px;">
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">home</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">auto</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">life</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">umbrella</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">jewelry</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;  ">
+                        <div>
+                            <p class="innerdivtext">other</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-12" [ngClass]="addLicense?'col-12':'col-lg-6'" [ngStyle]="isMobile?{'margin-top':'0px'}:{'margin-top': '22px','background-color': 'white', 'padding': '50px'}" >
+                <form class="animated fadeIn personForm" [formGroup]="validatingForm" (ngSubmit)="showDiscounts()" *ngIf="step==2" [ngStyle]="isMobile?{'margin-top':'0px'}:{}">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-row">
+                                <!-- Material input -->
+
+                                <div class="col-sm-12 col-12">
+                                    <div class="md-form mt-0">
+                                        <input mdbInput mdbValidate type="email" class="form-control page2-form-control" id="form8" [(ngModel)]="email" formControlName="emailInput" placeholder="email" style="font-family: Myriad Pro Regular; padding-left: 5px;"/>
+                                        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" style="font-family: Myriad Pro Regular;">Email type is invalid </mdb-error>
+                                        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)" style="font-family: Myriad Pro Regular;">Email type is valid </mdb-success>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-row">
+                                <div class="col-sm-12 col-12">
+                                    <div class="md-form mt-0">
+                                        <input mdbInput type="text" mdbValidate name="phone" formControlName="phoneInput" class="form-control page2-form-control" id="form1" [(ngModel)]="phone" placeholder="phone" style="font-family: Myriad Pro Regular; padding-left: 5px;"/>
+                                        <mdb-error *ngIf="phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)" style="font-family: Myriad Pro Regular;">Phone number is required. </mdb-error>
+                                        <mdb-success *ngIf="phoneInput.valid && (phoneInput.dirty || phoneInput.touched)" style="font-family: Myriad Pro Regular;">Phone number is valid </mdb-success>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row animated fadeIn" *ngFor="let item of personData; index as i">
+                        <div class="col-sm-10 col-12">
+                            <div class="form-row">
+                                <div class="col-sm-4 col-12">
+                                    <div class="md-form mt-0">
+                                        <input mdbInput type="text" (change)="changeFirstname()" mdbValidate class="form-control page2-form-control" [formControlName]="'firstnameInput'+i" [(ngModel)]="personData[i]['first_name']" placeholder="first name"  style="font-family: Myriad Pro Regular; padding-left: 5px;"/>
+                                    </div>
+                                </div>
+                                <div class="col-2" *ngIf="isMobile"></div>
+                                <div class="col-sm-4 col-12">
+                                    <div class="md-form mt-0">
+                                        <input mdbInput type="text" (change)="changeLastname()" mdbValidate class="form-control page2-form-control" [formControlName]="'lastnameInput'+i" [(ngModel)]="personData[i]['last_name']" placeholder="last name" style="font-family: Myriad Pro Regular; padding-left: 5px;"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-12">
+                                    <div class="md-form mt-0" onclick="this.children.focus()">
+                                        <div class="input-group">
+                                            <input class="form-control" placeholder="mm-dd-yyyy"
+                                                name="dp" [(ngModel)]="personData[i]['birthday']" [formControlName]="'birthdayInput'+i" [ngClass]="'my_group'" ngbDatepicker #d="ngbDatepicker" style="border-color: gray; height: 39px;">
+                                            <div class="input-group-append" style="padding-bottom: 8px;">
+                                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button" style="margin: 0px; padding: 10px; border-color: #9f9f9f !important; height: 39px !important;"><i style="color: gray;" class="far fa-calendar-alt"></i></button>
+                                            </div>
+<!--                                            <input type="date" class="form-control page2-form-control" placeholder="mm/dd/yyyy" style="height: 25px !important;" [formControlName]="'birthdayInput'+i" [(ngModel)]="personData[i]['birthday']" style="font-family: Myriad Pro Regular; padding-left: 5px;"/>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-1" *ngIf="i+1==personData.length">
+                            <div class="md-form mt-0">
+                                <button type="button" class="close" aria-label="Close" style="margin-top: 10px; font-size: 20pt !important;" (click)="deletePerson(i)" *ngIf="i>0">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-12 col-12 " style="    padding: 0px;margin: 0 auto; display: block; z-index: -1 !important;">
+                        <button mdbBtn type="button" size="md" style="margin: 0px; background-color: #99c3ff; color: white; border: solid 1px; border-color: black; letter-spacing: 2px;" class="shadow-none" (click)="addPerson()"><i class="fas fa-user-plus"></i>&nbsp; add</button>
+                    </div>
+
+                    <div id="destination" [ngStyle]="!isMobile?{'height':'30px'}:{'height':'10px'}"></div>
+					<div class="form-group col-md-8 col-12 " style="margin: 0 auto; display: block; z-index: -1 !important;">
+						<app-next-button type="submit" color="primary" text="Continue"></app-next-button>
+					</div>
+                </form>
+            </div>
+        </div>
+	</div>
+	<!-- Page2 End -------------------------------------------------------->
+
+	<!-- Page3 Begin -------------------------------------------------------->
+	<div class="row preDiv" *ngIf="step==3 && isPage5">
+		<!-- Side Bar Begin -->
+        <div class="col-md-4 col-lg-5 col-12" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+            <div class="col-md-12 col-12 col-lg-8 offset-lg-3 offset-md-1" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+                <div *ngIf="!isMobile" class="agentImageDiv" style="height: 100px !important; padding: 15px 0px 0px 30px;">
+
+                </div>
+                <div *ngIf="isMobile" style="text-align: center;"><h3>Insurance Quote</h3></div>
+                <div class="col-md-12 col-12 col-lg-12" style="margin-top: 22px; padding: 0px; background-color: white;">
+                    <!-- Stepers Wrapper -->
+                    <ul [ngClass]="isVerical ?'stepper stepper-vertical':'stepper stepper-horizontal'"  [ngStyle]="isMobile?{'padding':'0px'}:{'padding-left': '30px'}">
+                        <!-- First Step -->
+                        <li class="completed">
+                            <a href="javascript:void(0)" (click)="movePage(1)">
+                                <span class="circle">
+                                    <img src="../../../assets/images/sidebar/icon_start_active.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=1?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Start</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px;">{{sidebarAddress}}</span>
+                        <!-- Second Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(2)">
+                                <span class="circle" *ngIf="step>=2" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<2" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=2?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">About</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{sidebarfirstname + " " + sidebarlastname}}</span>
+                        <!-- Third Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(3)">
+                                <span class="circle" *ngIf="step>=3" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<3" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-home" style="color: #818181; background-color: #e6e6e6;"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=3?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">House Info</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{zillowData['square']}} square <br>{{zillowData['built_year']}} year built<br>{{sidebarDiscounts}}</span>
+                        <!-- Fourth Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=4" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<4" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=4?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Other Details</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=5">
+                                    <img src="../../../assets/images/sidebar/active_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="circle" *ngIf="step<5">
+                                    <img src="../../../assets/images/sidebar/inactive_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=5?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Done!</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.Stepers Wrapper -->
+                </div>
+            </div>
+        </div>
+		<div class="col-md-8 col-lg-6 col-12 quoteTextDiv" [ngStyle]="isMobile?{'margin-bottom':'30px'}:{}">
+            <div *ngIf="!isMobile" class="col-md-12 col-lg-12 col-12" style="height: 100px;">
+                <div class="row" style="padding-top: 30px;">
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">home</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">auto</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">life</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">umbrella</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">jewelry</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;  ">
+                        <div>
+                            <p class="innerdivtext">other</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="col-md-12" style="margin-top: 22px;  background-color: white; ">
+                <div class="col-md-12 col-12" style="padding-top: 20px;">
+
+                    <p style="color: #808080; font-size: 25px; font-family: 'Myriad Pro Regular';" *ngIf="staticAddress!=null">{{staticAddress}}</p>
+                    <p style="color: #808080;font-size: 22px; font-family: 'Myriad Pro Regular';" *ngIf="staticAddress==null">Ex: 419 Virginia Ave, Phoenixville, Pennsylvania 19460</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-12">
+                        <agm-map [latitude]="56" [longitude]="88">
+                            <agm-marker [latitude]="55" [longitude]="23"></agm-marker>
+                        </agm-map>
+                    </div>
+                    <div class="col-md-8 col-lg-8 col-12" style="margin-top: 20px; padding-bottom: 5px;">
+
+                        <p style="margin-bottom: 0px; color: #808080; font-size: 18px; font-family: 'Myriad Pro Regular';">{{zillowData['built_year']}} year built</p>
+                        <p style=" margin-bottom: 0px; color: #808080; font-size: 18px; font-family: 'Myriad Pro Regular';">{{zillowData['square']}} square feet</p>
+                        <p style="margin-bottom: 0px; color: #808080; font-size: 18px; font-family: 'Myriad Pro Regular';">{{zillowData['estimate']}} est value</p>
+                        <p style="margin-bottom: 0px; color: #808080; font-size: 18px; font-family: 'Myriad Pro Regular';">{{floodData['application']['floodZone']}} flood zone</p>
+                    </div>
+                </div>
+                <app-page-five [addressData]="this.addressData" (setSelectedDiscount)="setSelectedDiscount($event)" (setDiscountData)="setDiscountData($event)"></app-page-five>
+			</div>
+		</div>
+	</div>
+	<!-- Page3 End -------------------------------------------------------->
+
+    <!-- Page 4 Begin -------------------------------------------------------->
+    <div class="row preDiv" *ngIf="step==4 && isPage6">
+        <!-- Side Bar Begin -->
+        <div class="col-md-4 col-lg-5 col-12" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+            <div class="col-md-12 col-12 col-lg-8 offset-lg-3 offset-md-1" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+                <div *ngIf="!isMobile" class="agentImageDiv" style="height: 100px !important; padding: 15px 0px 0px 30px;">
+
+                </div>
+                <div *ngIf="isMobile" style="text-align: center;"><h3>Insurance Quote</h3></div>
+                <div class="col-md-12 col-12 col-lg-12" style="margin-top: 22px; padding: 0px; background-color: white;">
+                    <!-- Stepers Wrapper -->
+                    <ul [ngClass]="isVerical ?'stepper stepper-vertical':'stepper stepper-horizontal'"  [ngStyle]="isMobile?{'padding':'0px'}:{'padding-left': '30px'}">
+                        <!-- First Step -->
+                        <li class="completed">
+                            <a href="javascript:void(0)" (click)="movePage(1)">
+                                <span class="circle">
+                                    <img src="../../../assets/images/sidebar/icon_start_active.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=1?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Start</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px;">{{sidebarAddress}}</span>
+                        <!-- Second Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(2)">
+                                <span class="circle" *ngIf="step>=2" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<2" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=2?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">About</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{sidebarfirstname + " " + sidebarlastname}}</span>
+                        <!-- Third Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(3)">
+                                <span class="circle" *ngIf="step>=3" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<3" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-home" style="color: #818181; background-color: #e6e6e6;"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=3?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">House Info</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{zillowData['square']}} square <br>{{zillowData['built_year']}} year built<br>{{sidebarDiscounts}}</span>
+                        <!-- Fourth Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(4)">
+                                <span class="circle" *ngIf="step>=4" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<4" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=4?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Other Details</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=5">
+                                    <img src="../../../assets/images/sidebar/active_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="circle" *ngIf="step<5">
+                                    <img src="../../../assets/images/sidebar/inactive_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=5?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Done!</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.Stepers Wrapper -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-12 quoteTextDiv" [ngStyle]="isMobile?{'margin-bottom':'30px'}:{}">
+            <div *ngIf="!isMobile" class="col-md-12 col-lg-12 col-12" style="height: 100px;">
+                <div class="row" style="padding-top: 30px;">
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">home</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">auto</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">life</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">umbrella</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">jewelry</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;  ">
+                        <div>
+                            <p class="innerdivtext">other</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 22px;  background-color: white; ">
+                <app-page-six (setInsurnaceType)="setInsurnaceType($event)"></app-page-six>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page5 Begin -------------------------------------------------------->
+    <div class="row preDiv" *ngIf="step==4 && isPage7">
+        <!-- Side Bar Begin -->
+        <div class="col-md-4 col-lg-5 col-12" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+            <div class="col-md-12 col-12 col-lg-8 offset-lg-3 offset-md-1" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+                <div *ngIf="!isMobile" class="agentImageDiv" style="height: 100px !important; padding: 15px 0px 0px 30px;">
+
+                </div>
+                <div *ngIf="isMobile" style="text-align: center;"><h3>Insurance Quote</h3></div>
+                <div class="col-md-12 col-12 col-lg-12" style="margin-top: 22px; padding: 0px; background-color: white;">
+                    <!-- Stepers Wrapper -->
+                    <ul [ngClass]="isVerical ?'stepper stepper-vertical':'stepper stepper-horizontal'"  [ngStyle]="isMobile?{'padding':'0px'}:{'padding-left': '30px'}">
+                        <!-- First Step -->
+                        <li class="completed">
+                            <a href="javascript:void(0)" (click)="movePage(1)">
+                                <span class="circle">
+                                    <img src="../../../assets/images/sidebar/icon_start_active.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=1?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Start</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px;">{{sidebarAddress}}</span>
+                        <!-- Second Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(2)">
+                                <span class="circle" *ngIf="step>=2" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<2" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=2?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">About</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{sidebarfirstname + " " + sidebarlastname}}</span>
+                        <!-- Third Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(3)">
+                                <span class="circle" *ngIf="step>=3" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<3" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-home" style="color: #818181; background-color: #e6e6e6;"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=3?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">House Info</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{zillowData['square']}} square <br>{{zillowData['built_year']}} year built<br>{{sidebarDiscounts}}</span>
+                        <!-- Fourth Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(4)">
+                                <span class="circle" *ngIf="step>=4" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<4" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=4?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Other Details</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=5">
+                                    <img src="../../../assets/images/sidebar/active_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="circle" *ngIf="step<5">
+                                    <img src="../../../assets/images/sidebar/inactive_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=5?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Done!</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.Stepers Wrapper -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-12 quoteTextDiv" [ngStyle]="isMobile?{'margin-bottom':'30px'}:{}">
+            <div *ngIf="!isMobile" class="col-md-12 col-lg-12 col-12" style="height: 100px;">
+                <div class="row" style="padding-top: 30px;">
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">home</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">auto</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">life</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">umbrella</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">jewelry</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;  ">
+                        <div>
+                            <p class="innerdivtext">other</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 22px;  background-color: white; ">
+                <app-page-seven [personData]="this.personData" [addressData]="this.addressData" (setCarData)="setCarData($event)"></app-page-seven>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page6 Begin -------------------------------------------------------->
+    <div class="row preDiv" *ngIf="step==4 && isPage8">
+        <!-- Side Bar Begin -->
+        <div class="col-md-4 col-lg-5 col-12" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+            <div class="col-md-12 col-12 col-lg-8 offset-lg-3 offset-md-1" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+                <div *ngIf="!isMobile" class="agentImageDiv" style="height: 100px !important; padding: 15px 0px 0px 30px;">
+
+                </div>
+                <div *ngIf="isMobile" style="text-align: center;"><h3>Insurance Quote</h3></div>
+                <div class="col-md-12 col-12 col-lg-12" style="margin-top: 22px; padding: 0px; background-color: white;">
+                    <!-- Stepers Wrapper -->
+                    <ul [ngClass]="isVerical ?'stepper stepper-vertical':'stepper stepper-horizontal'"  [ngStyle]="isMobile?{'padding':'0px'}:{'padding-left': '30px'}">
+                        <!-- First Step -->
+                        <li class="completed">
+                            <a href="javascript:void(0)" (click)="movePage(1)">
+                                <span class="circle">
+                                    <img src="../../../assets/images/sidebar/icon_start_active.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=1?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Start</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px;">{{sidebarAddress}}</span>
+                        <!-- Second Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(2)">
+                                <span class="circle" *ngIf="step>=2" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<2" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=2?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">About</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{sidebarfirstname + " " + sidebarlastname}}</span>
+                        <!-- Third Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(3)">
+                                <span class="circle" *ngIf="step>=3" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<3" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-home" style="color: #818181; background-color: #e6e6e6;"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=3?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">House Info</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{zillowData['square']}} square <br>{{zillowData['built_year']}} year built<br>{{sidebarDiscounts}}</span>
+                        <!-- Fourth Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(4)">
+                                <span class="circle" *ngIf="step>=4" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<4" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=4?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Other Details</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=5">
+                                    <img src="../../../assets/images/sidebar/active_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="circle" *ngIf="step<5">
+                                    <img src="../../../assets/images/sidebar/inactive_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=5?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Done!</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.Stepers Wrapper -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-12 quoteTextDiv" [ngStyle]="isMobile?{'margin-bottom':'30px'}:{}">
+            <div *ngIf="!isMobile" class="col-md-12 col-lg-12 col-12" style="height: 100px;">
+                <div class="row" style="padding-top: 30px;">
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">home</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">auto</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">life</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" [ngStyle]="life?{'color':'#004FFF'}:{'color':'#fff'}"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">umbrella</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" [ngStyle]="umbrella?{'color':'#004FFF'}:{'color':'#fff'}"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">jewelry</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" [ngStyle]="jewelry?{'color':'#004FFF'}:{'color':'#fff'}"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;  ">
+                        <div>
+                            <p class="innerdivtext">other</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #fff"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 22px;  background-color: white; ">
+                <app-page-eight (setQuestions)="setQuestions($event)" (onNext)="onNext()" (on1)="on1()" (on2)="on2()" (on3)="on3()"></app-page-eight>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page7 Begin -------------------------------------------------------->
+    <div class="row preDiv" *ngIf="step==5 && isPage9">
+        <!-- Side Bar Begin -->
+        <div class="col-md-4 col-lg-5 col-12" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+            <div class="col-md-12 col-12 col-lg-8 offset-lg-3 offset-md-1" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+                <div *ngIf="!isMobile" class="agentImageDiv" style="height: 100px !important; padding: 15px 0px 0px 30px;">
+                </div>
+                <div *ngIf="isMobile" style="text-align: center;"><h3>Insurance Quote</h3></div>
+                <div class="col-md-12 col-12 col-lg-12" style="margin-top: 22px; padding: 0px; background-color: white;">
+                    <!-- Stepers Wrapper -->
+                    <ul [ngClass]="isVerical ?'stepper stepper-vertical':'stepper stepper-horizontal'"  [ngStyle]="isMobile?{'padding':'0px'}:{'padding-left': '30px'}">
+                        <!-- First Step -->
+                        <li class="completed">
+                            <a href="javascript:void(0)" (click)="movePage(1)">
+                                <span class="circle">
+                                    <img src="../../../assets/images/sidebar/icon_start_active.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=1?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Start</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px;">{{sidebarAddress}}</span>
+                        <!-- Second Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(2)">
+                                <span class="circle" *ngIf="step>=2" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<2" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=2?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">About</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{sidebarfirstname + " " + sidebarlastname}}</span>
+                        <!-- Third Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(3)">
+                                <span class="circle" *ngIf="step>=3" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<3" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-home" style="color: #818181; background-color: #e6e6e6;"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=3?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">House Info</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{zillowData['square']}} square <br>{{zillowData['built_year']}} year built<br>{{sidebarDiscounts}}</span>
+                        <!-- Fourth Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(4)">
+                                <span class="circle" *ngIf="step>=4" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<4" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=4?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Other Details</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(5)">
+                                <span class="circle" *ngIf="step>=5">
+                                    <img src="../../../assets/images/sidebar/active_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="circle" *ngIf="step<5">
+                                    <img src="../../../assets/images/sidebar/inactive_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=5?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Done!</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.Stepers Wrapper -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-12 quoteTextDiv" [ngStyle]="isMobile?{'margin-bottom':'30px'}:{}">
+            <div *ngIf="!isMobile" class="col-md-12 col-lg-12 col-12" style="height: 100px;">
+                <div class="row" style="padding-top: 30px;">
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">home</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">auto</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">life</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">umbrella</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">jewelry</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;  ">
+                        <div>
+                            <p class="innerdivtext">other</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 22px;  background-color: white; ">
+                <app-page-nine [discountsData]="discountsData" (onChangeAddress)="onChangeAddress()" [carData]="carData" [addressText]="formatted_address" [personData]="personData" [homeData]="homeData" (onSetDetails)="setDetailData($event)"></app-page-nine>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Page8 Begin -------------------------------------------------------->
+    <div class="row preDiv" *ngIf="step==5 && isPage10">
+        <!-- Side Bar Begin -->
+        <div class="col-md-4 col-lg-5 col-12" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+            <div class="col-md-12 col-12 col-lg-8 offset-lg-3 offset-md-1" [ngStyle]="isMobile?{'padding':'0px'}:{}">
+                <div *ngIf="!isMobile" class="agentImageDiv" style="height: 100px !important; padding: 15px 0px 0px 30px;">
+
+                </div>
+                <div *ngIf="isMobile" style="text-align: center;"><h3>Insurance Quote</h3></div>
+                <div class="col-md-12 col-12 col-lg-12" style="margin-top: 22px; padding: 0px; background-color: white;">
+                    <!-- Stepers Wrapper -->
+                    <ul [ngClass]="isVerical ?'stepper stepper-vertical':'stepper stepper-horizontal'"  [ngStyle]="isMobile?{'padding':'0px'}:{'padding-left': '30px'}">
+                        <!-- First Step -->
+                        <li class="completed">
+                            <a href="javascript:void(0)" (click)="movePage(1)">
+                                <span class="circle">
+                                    <img src="../../../assets/images/sidebar/icon_start_active.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=1?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Start</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px;">{{sidebarAddress}}</span>
+                        <!-- Second Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(2)">
+                                <span class="circle" *ngIf="step>=2" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<2" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=2?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">About</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{sidebarfirstname + " " + sidebarlastname}}</span>
+                        <!-- Third Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(3)">
+                                <span class="circle" *ngIf="step>=3" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<3" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-home" style="color: #818181; background-color: #e6e6e6;"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=3?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">House Info</span>
+                            </a>
+                        </li>
+                        <span *ngIf="!isMobile" style="font-size: 15px; margin-top: -20px; font-family: 'PingfangSC Regular'; margin-left: 75px; min-height: 22px">{{zillowData['square']}} square <br>{{zillowData['built_year']}} year built<br>{{sidebarDiscounts}}</span>
+                        <!-- Fourth Step -->
+                        <li class="active">
+                            <a href="javascript:void(0)" (click)="movePage(4)">
+                                <span class="circle" *ngIf="step>=4" style="background-color: #1d1df2 !important;border: solid 2px #1d1df2 !important;color: #fff !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="circle" *ngIf="step<4" style="background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=4?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Other Details</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0)">
+                                <span class="circle" *ngIf="step>=5" (click)="movePage(5)">
+                                    <img src="../../../assets/images/sidebar/active_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="circle" *ngIf="step<5">
+                                    <img src="../../../assets/images/sidebar/inactive_done.png" class="mx-auto" width="100%" />
+                                </span>
+                                <span class="label" *ngIf="!isMobile" [ngClass]="step>=5?'':'text-non-selected'" style="font-family: 'Myriad Pro Regular'; margin-left: 20px; font-size: 20px; margin-top: 0px;">Done!</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.Stepers Wrapper -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-12 quoteTextDiv" [ngStyle]="isMobile?{'margin-bottom':'30px'}:{}">
+            <div *ngIf="!isMobile" class="col-md-12 col-lg-12 col-12" style="height: 100px;">
+                <div class="row" style="padding-top: 30px;">
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">home</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">auto</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">life</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">umbrella</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;">
+                        <div>
+                            <p class="innerdivtext">jewelry</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2px; width: 50px;  ">
+                        <div>
+                            <p class="innerdivtext">other</p>
+                        </div>
+                        <div>
+                            <div class="innerdiv">
+                                <i class="fas fa-check fa-2x" style="color: #004FFF"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 22px;  background-color: white; ">
+                <app-page-ten (setQuestions)="setQuestions($event)"></app-page-ten>
+            </div>
+        </div>
+    </div>
+
+</div>

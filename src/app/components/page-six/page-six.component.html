@@ -1,0 +1,14 @@
+<div class="md-form form-group">
+  <div class="row animated fadeIn">
+    <div class="col-md-12" style="margin: 30px;">
+      <p class="title">
+          Current Carrier?
+      </p>
+
+
+    </div>
+    <div class="col-md-3 col-6" *ngFor="let item of insurances">
+      <div class="insurance-button" (click)="selectInsurance(item.value)">{{item.text}}</div>
+    </div>
+  </div>
+</div>

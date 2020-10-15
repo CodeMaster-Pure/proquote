@@ -1,0 +1,593 @@
+@media screen and (min-width: 769px) {
+  .mainContent {
+    //padding-top: 50px !important;
+  }
+  .container {
+    padding-top: 100px !important;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .quoteTextDiv {
+    padding-left: 50px !important;
+
+    h1 {
+      font-size: 40px !important;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  ul.stepper li a {
+    padding: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .zillowBoard {
+    img {
+      width: 45px !important;
+    }
+
+    span {
+      font-size: 12px !important;
+    }
+  }
+}
+
+
+.container {
+  .zillowBoard {
+    .app-loader {
+      margin-left: 40px !important;
+      margin-top: 12px;
+      float: left !important;
+    }
+
+    .zillowImg {
+      float: left;
+      margin-right: 20px;
+      margin-top: 5px;
+      height: auto;
+      width: 65px;
+    }
+
+    img {
+      width: 65px;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  .stepper-horizontal li:hover {
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+
+  .md-form input[type=number]:focus:not([readonly]) {
+    box-shadow: 0 1px 0 0 transparent !important;
+  }
+
+  .activeCircle {
+    background-color: #1d1df2 !important;
+    border: solid 2px #1d1df2 !important;
+    color: #1d1df2 !important;
+  }
+
+  .inactiveCircle {
+    background-color: #E6E6E6 !important;
+    color: #E6E6E6 !important;
+    border: solid 2px #E6E6E6 !important;
+  }
+
+  .preDiv {
+    margin-top: 150px;
+
+    .pictureBoard {
+      margin: 0 auto;
+    }
+
+    .agentImageDiv {
+      margin: 0 auto;
+      height: 100px !important;
+    }
+
+    .quoteTitle {
+      font-weight: 900 !important;
+      font-size: 80px;
+    }
+
+    .quoteButton {
+      width: 50%;
+      margin-left: 10%;
+    }
+
+    .benefitWord {
+      font-weight: 900 !important;
+    }
+  }
+
+  .specificForm {
+    label, mdb-checkbox {
+      float: left;
+    }
+
+    textarea {
+      height: 200px;
+    }
+  }
+
+  .notSpecificPage {
+    margin-bottom: 50px;
+
+    .pageHeader {
+
+      .inputAddressMD {
+        border: solid 3px #EAEAEA !important;
+        text-indent: 15px;
+        border-radius: 10px;
+        background-color: white;
+      }
+
+      .inputManualField {
+
+        border: solid 3px #EAEAEA !important;
+        text-indent: 15px;
+        border-radius: 10px;
+        background-color: white;
+      }
+    }
+
+    .row {
+      .col-md-12 {
+        h1 {
+          border-bottom: dashed 1px #cecece;
+          padding-bottom: 30px;
+        }
+
+        @media screen and (max-width: 1024px) {
+          mdb-badge {
+            display: block !important;
+            height: 30px !important;
+            margin-top: 10px !important;
+            min-width: 150px !important;
+          }
+        }
+      }
+    }
+
+    .switchArea {
+      padding-top: 8px;
+      display: contents;
+      margin-left: 80%;
+
+      a {
+        padding: 8px;
+        text-decoration: underline;
+      }
+    }
+
+    form.personForm {
+      padding-top: 50px;
+      padding-bottom: 20px;;
+      border-bottom: dashed 1px #cecece;
+
+      .userFormGroup {
+        button[type=submit] {
+          padding: 10px 12px;
+          margin-left: 0;
+        }
+      }
+    }
+
+    div.insuranceForm {
+      margin-top: 30px;
+      margin-bottom: 20px;
+
+      .carFormGroup {
+        .carForm {
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    div.terms {
+      padding-top: 30px;
+      border-top: dashed 1px #cecece;
+      margin-bottom: 60px;
+
+      button {
+        margin-left: 0px !important;
+      }
+    }
+
+    div.pricing {
+      @media screen and (max-width: 1024px) {
+        .form-group:first-of-type {
+          .col-md-2 img {
+            margin-top: 10%;
+            width: 40%;
+            margin-left: 30%;
+          }
+
+          .col-md-6 {
+            margin-top: 10%;
+            margin-left: 10%;
+          }
+        }
+      }
+
+      mdb-card {
+        max-width: 20rem;
+        margin: 0 auto !important;
+        margin-top: 30px !important;
+      }
+
+      mdb-card-header.good {
+        background-color: #ffbb11;
+      }
+
+      mdb-card-header.enhanced {
+        background-color: #4285f4;
+      }
+
+      mdb-card-header.life {
+        background-color: #f73345 !important;
+
+        .getMoreInfoBtn {
+          margin-top: 19px;
+        }
+      }
+    }
+  }
+}
+
+
+.md-progress {
+  height: 20px;
+  margin-top: 20px !important;
+  margin: 0 auto;
+}
+
+mdb-card-body {
+  min-height: 400px;
+}
+
+.dropdown-item.active {
+  background-color: #ce0012 !important;
+}
+
+.border-light {
+  background-color: white;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.topImgGroup {
+  .topImage {
+    padding-right: 2.5px;
+    padding-left: 2.5px;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .pageHeader {
+    background-size: 100% 100%;
+    min-height: 400px;
+
+    .pageHeaderTitle {
+      margin-top: 25px;
+      padding: 5px;
+      border: solid 5px white !important;
+    }
+
+    .inputAddressMD {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .preDiv {
+    margin-top: 0px !important;
+
+    .quoteTitle {
+      text-align: center !important;
+      font-size: 30px !important;
+    }
+
+    .quoteButton {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+  .switchArea {
+    margin-top: 20px !important;
+  }
+  .pageHeader {
+    background-size: 100% 100%;
+    //min-height: 435px !important;
+
+    .pageHeaderTitle {
+      font-size: 25px;
+      margin-top: 10px;
+    }
+
+    .topImgGroup {
+      width: 90%;
+      margin-left: 5%;
+
+      .topImage {
+        img {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    br {
+      height: 0px;
+    }
+  }
+  .stepper-horizontal {
+    //padding-right: 15px !important;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .CarTypeInput {
+    margin-left: -27%;
+    width: 134%;
+  }
+  .CarYearInput {
+    width: 80%;
+  }
+  .CarModelInput {
+    width: 150%;
+  }
+  .CarButton {
+    float: right !important;
+  }
+}
+
+.dropdown-toggle, .getMoreInfoBtn {
+  width: 85% !important;
+  margin-left: 7.5% !important;
+}
+
+.dropdown-menu {
+  width: 80%;
+  margin-left: 7.5%;
+}
+
+.squareFeetTag {
+  padding: 8px;
+  width: 105px;
+  height: 20px;
+  background-color: orangered;
+  color: white;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-right: 10px;
+  display: inline;
+}
+
+.userFormGroup .col-form-label {
+  color: lightgray !important;
+}
+
+.userFormGroup .btn.btn-sm, .carFormGroup .btn.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.64rem;
+  background: lightgray;
+  color: #3d3d3d;
+}
+
+.col {
+  margin-top: 20px;
+}
+
+form.specificForm input, form.specificForm textarea {
+  background-color: #F3F761;
+}
+
+.modal-dialog {
+  min-width: 442px;
+
+  .modal-footer {
+
+  }
+}
+
+.mobileStepper {
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+  margin-top: 32px !important;
+  padding-top: 40px !important;
+}
+
+/*
+  Insurance Type select Block
+*/
+.select_btn_block {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  .col-md-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .select_insurance {
+      background-color: #f5f5ff;
+      border-radius: 15px;
+      //padding-top: 10%;
+      //padding-bottom: 10%;
+      cursor: pointer;
+      height: 100%;
+      img {
+        width: 40%;
+        // margin-left: 15%;
+      }
+      h5{
+        margin-top: -10px;
+      }
+    }
+
+    .select_insurance:hover {
+      box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+/*Google Places API*/
+.md-form {
+  .row {
+    .google-places-img {
+      width: 25px;
+      height: 25px;
+      margin-top: 15px;
+    }
+  }
+}
+
+.sidebar {
+  height: 100%;
+  width: 160px;
+  // position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+/* Style sidebar links */
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+/* Style links on mouse-over */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Style the main content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+agm-map {
+  height: 150px;
+  padding: 1px;
+}
+
+@media screen and (max-width: 768px) {
+  div#spacing-image {
+    display: none;
+  }
+}
+
+.form-control{
+  // border: solid 1px !important;
+}
+
+.innerdiv {
+    background-color: white;
+    
+    display: table;
+    margin: 0 auto;
+}
+
+.innerdivtext{
+    text-align: center;
+    color: #808080 !important;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.text-non-selected{
+    color: grey !important;
+}
+
+.span-active {
+
+}
+
+.span-inactive {
+    background-color: #e6e6e6 !important; color: #808080 !important; border: solid 2px #e6e6e6 !important;
+}
+
+@font-face {
+  font-family: 'PingfangSC Regular';
+  src: url('../../assets/font/PingFang\ SC\ Regular.ttf') format('ttf'), 
+  url('../../assets/font/PingFang\ SC\ Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Myriad Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Myriad Pro Regular'), url('../../assets/font/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+.page2-form-control {
+  border: solid 1px !important;
+  border-color: #9f9f9f !important;
+  color: #808080;
+}
+
+.form-control:focus { 
+  outline: 0 !important;
+  box-shadow: 0 0 0 0  !important; 
+}
+
+input.form-control:focus { 
+  outline: 0 !important;
+  box-shadow: 0 0 0 0  !important; 
+}
+
+input:focus, select:focus, .form-control:focus, textarea:focus, button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+div.bg-light{
+  background-color: white !important;
+}
+
+.bg-light{
+  background-color: white !important;
+}
+
+.ngb-dp-header  { 
+  width: 100% !important;
+  text-align: center !important;
+  border-bottom: 2px solid #e2e2e2 !important;
+  box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.10) !important;
+  padding: 10px 0 !important;
+  background:transparent !important;
+
+}

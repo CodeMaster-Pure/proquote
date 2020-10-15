@@ -1,0 +1,112 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-12" [ngStyle]="isMobile?{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin-bottom': '10px'}:{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin': '10px'}">
+            <div class="md-outline md-form add-car-containter">
+                <div class="form-row addCar align-items-center justify-content-center" >
+                    <div class="col justify-content-center align-items-center">
+                        <div class="text-center">
+                            <img src="../../../assets/images/page6/img1.png" class="mx-auto" height="45px" />
+                        </div>
+                        <div class="md-outline md-form">
+                            <select class="browser-default custom-select CarYearInput" (ngModelChange)="onChangeLife(questionData.life)" [(ngModel)]="questionData.life">
+                                <option>Select</option>
+                                <option *ngFor="let item of life_infos; index as i" [value]="item">{{item}}</option>
+                            </select>
+                        </div>
+                        <div class="text-center" style="font-family: Myriad Pro Regular;">$55/month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12" [ngStyle]="isMobile?{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin-bottom': '10px'}:{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin': '10px'}">
+            <div class="md-outline md-form add-car-containter">
+                <div class="form-row addCar align-items-center justify-content-center" >
+                    <div class="col justify-content-center align-items-center">
+                        <div class="text-center">
+                            <img src="../../../assets/images/page6/img2.png" class="mx-auto" height="45px" />
+                        </div>
+                        <div class="md-outline md-form">
+                            <input mdbInput type="text" class="form-control" (ngModelChange)="onChangeJewelry(questionData.jewelry)" placeholder="" [(ngModel)]="questionData.jewelry"/>
+                        </div>
+                        <div class="text-center" style="font-family: Myriad Pro Regular;">jewelry</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-12" [ngStyle]="isMobile?{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin-bottom': '10px'}:{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin': '10px'}">
+            <div class="md-outline md-form add-car-containter">
+                <div class="form-row addCar align-items-center justify-content-center" >
+                    <div class="col justify-content-center align-items-center">
+                        <div class="text-center">
+                            <img src="../../../assets/images/page6/img3.png" class="mx-auto" height="45px" />
+                        </div>
+                        <div class="md-outline md-form">
+                            <select class="browser-default custom-select CarYearInput" (ngModelChange)="onChangeUmbrella(questionData.umbrella)" [(ngModel)]="questionData.umbrella">
+                                <option>Select</option>
+                                <option *ngFor="let item of umbrella_infos; index as i" [value]="item">{{item}}</option>
+                            </select>
+                        </div>
+                        <div class="text-center" style="font-family: Myriad Pro Regular;">umbrella</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-12" [ngStyle]="isMobile?{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin-bottom': '10px'}:{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin': '10px'}">
+            <div class="md-outline md-form add-car-containter">
+                <div class="form-row addCar align-items-center justify-content-center" >
+                    <div class="col justify-content-center align-items-center">
+                        <div class="text-center">
+                            <img src="../../../assets/images/page6/img4.png" class="mx-auto" height="45px" />
+                        </div>
+                        <div class="md-outline md-form">
+                            <div class="text-center">
+                                <img src="../../../assets/images/page6/white-plus.png" class="mx-auto" height="45px" />
+                            </div>
+                        </div>
+                        <div class="text-center" style="font-family: Myriad Pro Regular;">flood</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-3 col-sm-6 col-12" [ngStyle]="isMobile?{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin-bottom': '10px'}:{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin': '10px'}">
+            <div class="md-outline md-form add-car-containter">
+                <div class="form-row addCar align-items-center justify-content-center" >
+                    <div class="col justify-content-center align-items-center">
+                        <div class="text-center" style="height: 45px; position: relative;">
+                            <img src="../../../assets/images/page6/img5.png" class="mx-auto" style="max-height: 100%;
+                            max-width: 100%;
+                            width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;"/>
+                        </div>
+                        <div class="md-outline md-form">
+                            <div class="text-center">
+                                <img src="../../../assets/images/page6/white-plus.png" class="mx-auto" height="45px" />
+                            </div>
+                        </div>
+                        <div class="text-center">other</div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="col-md-4 col-sm-6 col-12" [ngStyle]="isMobile?{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin-bottom': '10px'}:{'border': 'solid 2px','border-color': '#cccccc','border-radius': '5px','margin': '10px'}" style="padding: 0px;">
+            <textarea type="text" id="form8" class="md-textarea form-control page-textarea" mdbInput style="height: 202px !important; font-family: Myriad Pro Regular;" [(ngModel)]="questionData.note"></textarea>
+        </div>
+
+    </div>
+
+    <div class="col-md-12 row property mt-5 next-btn-div">
+        <div class="form-group col-md-8" style="margin: 0 auto; display: block;">
+            <app-next-button type="button" color="primary" text="continue" (click)="next()" style="margin-bottom: 20px; margin-top: 20px;"></app-next-button>
+        </div>
+    </div>
+</div>
